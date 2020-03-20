@@ -11,7 +11,7 @@ error_reporting(1);
 
  // Connects to your Database 
  $conn = mysqli_connect("localhost", "root", "") or die(mysqli_error()); 
- mysqli_select_db($conn, "address_book_db") or die(mysqli_error()); 
+ mysqli_select_db($conn, "addressbookdb") or die(mysqli_error()); 
 
 //get variables 
 $mode = $_GET['mode'];
