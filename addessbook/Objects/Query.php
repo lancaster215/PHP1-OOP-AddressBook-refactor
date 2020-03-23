@@ -13,7 +13,7 @@ Class Query extends Connection {
 	public function display()
 	{
 	  //your select code here
-		echo "<table>
+		echo "<div class='mtop w3-container'><div class='w3-card'><table class='w3-table w3-striped'>
 				<tr>
 					<th>Name</th>
 					<th>Phone Number</th>
@@ -31,12 +31,14 @@ Class Query extends Connection {
 						);
 		}
 		foreach($arr as $row){
-			echo "<tr>
+			echo "<tr class='w3-hover-shadow'>
 					<td>".$row["name"]."</td>
 					<td>".$row["phone"]."</td>
 					<td>".$row["email"]."</td>
 					<td>
-						<a 
+						<a
+						onclick='document.getElementById('edit')' 
+						class='w3-button w3-black'
 						href='./index.php?
 						name=".$row["name"]."
 						&phone=".$row["phone"]."
@@ -44,8 +46,9 @@ Class Query extends Connection {
 						&id=".$row["id"]."
 						&mode=edit'>
 							Edit
-						</a> 
-						<a 
+						</a>
+						<a
+						class='w3-button w3-black'
 						href='./index.php?
 						&id=".$row["id"]."
 						&mode=delete'
@@ -55,7 +58,7 @@ Class Query extends Connection {
 					</td>
 				</tr>";
 		}
-		echo "</table>";
+		echo "</table></div></div>";
 	}
 
 	public function insert($name, $phone, $email)

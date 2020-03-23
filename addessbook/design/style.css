@@ -1,0 +1,13 @@
+.mtop{
+    padding-top: 10px;
+}
+.center{
+    margin:0;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+}
+.btn{
+    float:right;
+}
