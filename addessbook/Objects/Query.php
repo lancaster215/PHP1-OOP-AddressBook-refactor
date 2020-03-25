@@ -38,6 +38,7 @@ Class Query extends Connection {
 					<td>
 						<a
 						onclick='document.getElementById('edit')' 
+						style='text-decoration:none;'
 						class='w3-button w3-black'
 						href='./index.php?
 						name=".$row["name"]."
@@ -48,6 +49,7 @@ Class Query extends Connection {
 							Edit
 						</a>
 						<a
+						style='text-decoration:none;'
 						class='w3-button w3-black'
 						href='./index.php?
 						&id=".$row["id"]."
