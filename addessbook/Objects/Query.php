@@ -66,25 +66,35 @@ Class Query extends Connection {
 	public function insert($name, $phone, $email)
 	{
 	  //your insert code here
-		$sql = "INSERT INTO address(name, phone, email) VALUES (?,?,?)";
+		$sql = "INSERT INTO address(name, phone, email) VALUES (:n,:p,:e)";
 		$stmt = $this->connect()->prepare($sql);
-		$stmt->execute([$name, $phone, $email]);
+		$stmt->execute(array(
+			':n' => $name,
+			':p' => $phone,
+			':e' => $email
+		));
 	}
 
 	public function update($name, $phone, $email, $id)
 	{
 	 //your update code here
-		$sql = "UPDATE address SET name=?, phone=?, email=? WHERE id=?";
+		$sql = "UPDATE address SET name=:n, phone=:p, email=:e WHERE id=:i";
 		$stmt = $this->connect()->prepare($sql);
-		$stmt->execute([$name, $phone, $email, $id]);
+		$stmt->execute(array(
+			':n' => $name,
+			':p' => $phone,
+			':e' => $email,
+			':i' => $id
+		));
 	}
 
 	public function delete($id)
 	{
 	 //your delete code
-		$sql = "DELETE FROM address WHERE id=?";
+		$sql = "DELETE FROM address WHERE id=:i";
 		$stmt = $this->connect()->prepare($sql);
-		$stmt->execute([$id]);
+		$stmt->bindValue(':i', $id);
+		$stmt->execute();
 	}
 } 
 
